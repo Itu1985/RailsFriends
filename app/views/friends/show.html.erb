@@ -1,0 +1,41 @@
+
+
+
+<table id="<%= dom_id @friend %>" class="table">
+  <thead>
+    <% if @friend.user ==current_user %>
+    <tr>
+      <th style="width: 20%;" scope="col">Name</th>
+   
+      <th style="width: 20%;" scope="col">Email</th>
+      <th style="width: 20%;" scope="col">Phone</th>
+       <th style="width: 20%;" scope="col">Handle</th>
+        
+         <th style="width: 20%;" scope="col"></th>
+          
+       
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+     
+      <td> <%= link_to  @friend.firstname + ' ' + @friend.lastname , @friend %> </td>
+    
+      <td> <%= @friend.email %></td>
+        <td> <%= @friend.phone %></td>
+          <td> <%= @friend.twitter %></td>
+         
+          <td><%= button_to "Destroy ", @friend, method: :delete,  data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" },class:"btn btn-outline-danger" %></td>
+    </tr>
+
+
+    
+  </tbody>
+      <%end%>
+</table>
+
+<div>
+ <%= link_to "Edit this friend", edit_friend_path(@friend), class:"btn btn-dark" %> 
+  <%= link_to "Back to friends", friends_path, class:"btn btn-dark" %>
+
+</div>
